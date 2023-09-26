@@ -63,15 +63,16 @@ for step in range(nframes):
     Cy = float(sys_cell[9])
     Cz = float(sys_cell[10])
 
-    Sxx = float(sys_stress[2]) * bar
-    Sxy = float(sys_stress[3]) * bar
-    Sxz = float(sys_stress[4]) * bar
-    Syx = float(sys_stress[5]) * bar
-    Syy = float(sys_stress[6]) * bar
-    Syz = float(sys_stress[7]) * bar
-    Szx = float(sys_stress[8]) * bar
-    Szy = float(sys_stress[9]) * bar
-    Szz = float(sys_stress[10]) * bar
+    # CP2K uses opposite sign convention for stresses
+    Sxx = -float(sys_stress[2]) * bar
+    Sxy = -float(sys_stress[3]) * bar
+    Sxz = -float(sys_stress[4]) * bar
+    Syx = -float(sys_stress[5]) * bar
+    Syy = -float(sys_stress[6]) * bar
+    Syz = -float(sys_stress[7]) * bar
+    Szx = -float(sys_stress[8]) * bar
+    Szy = -float(sys_stress[9]) * bar
+    Szz = -float(sys_stress[10]) * bar
 
     energy = float(sys_ener[4]) * Ha
     free_energy = energy
